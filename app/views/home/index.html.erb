@@ -17,7 +17,10 @@
   <%= @catan.turn %>
 </div>
 
-<div class="box">
-  <span>Map</span>
-  <%= @catan.map %>
-</div>
+<canvas id="map" width="500" height="500"></canvas>
+
+<script>
+<% @catan.map.fields.each.with_index do |field, index| %>
+  drawField(dimsForField[<%= field.index - 1 %>], colorForResource['<%= field.resource %>']);
+<% end %>
+</script>

@@ -1,1 +1,23 @@
 <h3>Web Catan in Ruby</h3>
+
+<div class="box">
+  <span>Players</span>
+  <% @catan.players.each do |player| %>
+    <span><%= player.name %> (<%= player.color %>)</span>
+  <% end %>
+</div>
+
+<div class="box">
+  <span>Current player</span>
+  <span><%= @catan.current_player.name %> (<%= @catan.current_player.color %>)</span>
+</div>
+
+<div class="box">
+  <span>Turn</span>
+  <%= @catan.turn %>
+</div>
+
+<div class="box">
+  <span>Map</span>
+  <%= @catan.map %>
+</div>

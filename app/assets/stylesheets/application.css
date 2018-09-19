@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.box {
+  border: 1px black solid;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}

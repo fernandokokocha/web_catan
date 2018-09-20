@@ -14,18 +14,42 @@
 //= require turbolinks
 //= require_tree .
 
+const hexSize = {
+  x: 100,
+  y: 87,
+};
+
+const margin = {
+  x: 5,
+  y: 5
+};
+
+const canvasSize = {
+  x: 2*margin.x + 4*hexSize.x,
+  y: 2*margin.y + 5*hexSize.y,
+}
+
+const resizeCanvas = () => {
+  document.getElementById("map").style.width = `${canvasSize.x}px`;
+  document.getElementById("map").style.height = `${canvasSize.y}px`;
+  const c = document.getElementById("map");
+  const ctx = c.getContext("2d");
+  ctx.canvas.width  = canvasSize.x;
+  ctx.canvas.height = canvasSize.y;
+}
+
 const drawField = ([baseX, baseY], color) => {
   const c = document.getElementById("map");
   const ctx = c.getContext("2d");
 
   ctx.beginPath();
-  ctx.moveTo(baseX + 30, baseY);
-  ctx.lineTo(baseX + 80, baseY);
-  ctx.lineTo(baseX + 110, baseY + 40);
-  ctx.lineTo(baseX + 80, baseY + 80);
-  ctx.lineTo(baseX + 30, baseY + 80);
-  ctx.lineTo(baseX, baseY + 40);
-  ctx.lineTo(baseX + 30, baseY);
+  ctx.moveTo(baseX + (hexSize.x / 4), baseY);
+  ctx.lineTo(baseX + (hexSize.x * 3 / 4), baseY);
+  ctx.lineTo(baseX + (hexSize.x), baseY + (hexSize.y / 2));
+  ctx.lineTo(baseX + (hexSize.x * 3 / 4), baseY + (hexSize.y));
+  ctx.lineTo(baseX + (hexSize.x / 4), baseY + (hexSize.y));
+  ctx.lineTo(baseX, baseY + (hexSize.y / 2));
+  ctx.lineTo(baseX + (hexSize.x / 4), baseY);
   ctx.stroke();
 
   ctx.fillStyle = color;
@@ -33,25 +57,25 @@ const drawField = ([baseX, baseY], color) => {
 };
 
 const dimsForField = [
-  [160, 160],
-  [160, 80],
-  [240, 120],
-  [240, 200],
-  [160, 240],
-  [80, 200],
-  [80, 120],
-  [160, 0],
-  [240, 40],
-  [320, 80],
-  [320, 160],
-  [320, 240],
-  [240, 280],
-  [160, 320],
-  [80, 280],
-  [0, 240],
-  [0, 160],
-  [0, 80],
-  [80, 40]
+  [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 4 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y)],
+  [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y * 3 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y * 5 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 6 / 2)],
+  [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y * 5 / 2)],
+  [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y * 3 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + 0],
+  [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 4, margin.y + (hexSize.y)],
+  [margin.x + (hexSize.x * 3 / 4) * 4, margin.y + (hexSize.y * 4 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 4, margin.y + (hexSize.y * 6 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y * 7 / 2)],
+  [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 8 / 2)],
+  [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y * 7 / 2)],
+  [margin.x, margin.y + (hexSize.y * 6 / 2)],
+  [margin.x, margin.y + (hexSize.y * 4 / 2)],
+  [margin.x, margin.y + (hexSize.y)],
+  [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y / 2)]
 ]
 
 const colorForResource = {

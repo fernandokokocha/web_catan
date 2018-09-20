@@ -1,23 +1,54 @@
-<h3>Web Catan in Ruby</h3>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Web Catan
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Players
+          </h4>
+          <% @catan.players.each do |player| %>
+          <%= render partial: 'player', locals: { player: player} %>
+          <% end %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Current player
+          </h4>
+          <%= render partial: 'player', locals: { player: @catan.current_player} %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Turn
+          </h4>
+          <%= @catan.turn %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="level">
+      <div class="box level-item">
+        <canvas id="map"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="box">
-  <span>Players</span>
-  <% @catan.players.each do |player| %>
-    <span><%= player.name %> (<%= player.color %>)</span>
-  <% end %>
-</div>
-
-<div class="box">
-  <span>Current player</span>
-  <span><%= @catan.current_player.name %> (<%= @catan.current_player.color %>)</span>
-</div>
-
-<div class="box">
-  <span>Turn</span>
-  <%= @catan.turn %>
-</div>
-
-<canvas id="map"></canvas>
 
 <script>
 resizeCanvas();

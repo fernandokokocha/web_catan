@@ -6,15 +6,10 @@ const resizeCanvas = () => {
   const ctx = getContext();
   ctx.canvas.width  = canvasSize.x;
   ctx.canvas.height = canvasSize.y;
-}
+};
 
-const drawField = (index, resource, number) => {
-  const [baseX, baseY] = dimsForField[index - 1];
-  const color = colorForResource[resource];
-  let textColor = textColorForResource[resource];
-  if (number == 6 || number == 8) textColor = dangerColorForResource;
+const drawHexOutline = (baseX, baseY) => {
   const ctx = getContext();
-
   ctx.beginPath();
   ctx.moveTo(baseX + (hexSize.x / 4), baseY);
   ctx.lineTo(baseX + (hexSize.x * 3 / 4), baseY);
@@ -24,17 +19,37 @@ const drawField = (index, resource, number) => {
   ctx.lineTo(baseX, baseY + (hexSize.y / 2));
   ctx.lineTo(baseX + (hexSize.x / 4), baseY);
   ctx.stroke();
+};
 
+const fillHexOutline = (color) => {
+  const ctx = getContext();
   ctx.fillStyle = color;
   ctx.fill();
+};
+
+const drawFieldNumber = (baseX, baseY, textColor, number) => {
+  const ctx = getContext();
 
   ctx.fillStyle = textColor;
-
   const fontSize = 40 - 3 * Math.abs(7 - number);
   ctx.font = `${fontSize}px Arial`;
   const text = `${number}`;
   const textWidth = ctx.measureText(text).width;
   const textHeight = ctx.measureText(text).height;
 
-  ctx.fillText(number, baseX + (hexSize.x / 2) - (textWidth / 2), baseY + (hexSize.y / 2) + (fontSize / 2) - 5);
+  const startX = baseX + (hexSize.x / 2) - (textWidth / 2);
+  const correction = -5;
+  const startY = baseY + (hexSize.y / 2) + (fontSize / 2) + correction;
+  ctx.fillText(number, startX, startY);
+};
+
+const drawField = (index, resource, number) => {
+  const [baseX, baseY] = dimsForField[index - 1];
+  const color = colorForResource[resource];
+  let textColor = textColorForResource[resource];
+  if (number == 6 || number == 8) textColor = dangerColorForResource;
+
+  drawHexOutline(baseX, baseY);
+  fillHexOutline(color);
+  drawFieldNumber(baseX, baseY, textColor, number)
 };

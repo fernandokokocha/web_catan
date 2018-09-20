@@ -8,7 +8,11 @@ const resizeCanvas = () => {
   ctx.canvas.height = canvasSize.y;
 }
 
-const drawField = ([baseX, baseY], color) => {
+const drawField = (index, resource, number) => {
+  const [baseX, baseY] = dimsForField[index - 1];
+  const color = colorForResource[resource];
+  let textColor = textColorForResource[resource];
+  if (number == 6 || number == 8) textColor = dangerColorForResource;
   const ctx = getContext();
 
   ctx.beginPath();
@@ -23,4 +27,14 @@ const drawField = ([baseX, baseY], color) => {
 
   ctx.fillStyle = color;
   ctx.fill();
+
+  ctx.fillStyle = textColor;
+
+  const fontSize = 40 - 3 * Math.abs(7 - number);
+  ctx.font = `${fontSize}px Arial`;
+  const text = `${number}`;
+  const textWidth = ctx.measureText(text).width;
+  const textHeight = ctx.measureText(text).height;
+
+  ctx.fillText(number, baseX + (hexSize.x / 2) - (textWidth / 2), baseY + (hexSize.y / 2) + (fontSize / 2) - 5);
 };

@@ -43,3 +43,14 @@ const colorForResource = {
   'grain': 'yellow',
   'ore': 'lightgrey',
 }
+
+const textColorForResource = {
+  'desert': 'white',
+  'wool': 'black',
+  'brick': 'black',
+  'lumber': 'black',
+  'grain': 'black',
+  'ore': 'black',
+}
+
+const dangerColorForResource = 'red';

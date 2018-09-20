@@ -22,6 +22,10 @@
 <script>
 resizeCanvas();
 <% @catan.map.fields.each.with_index do |field, index| %>
-  drawField(dimsForField[<%= field.index - 1 %>], colorForResource['<%= field.resource %>']);
+  drawField(
+    <%= field.index %>,
+    '<%= field.resource %>',
+    <%= field.number %>,
+  );
 <% end %>
 </script>

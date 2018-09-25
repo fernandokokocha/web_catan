@@ -1,0 +1,48 @@
+$color-desert: black;
+$color-wool: lightgreen;
+$color-brick: darkred;
+$color-lumber: green;
+$color-grain: yellow;
+$color-ore: lightgrey;
+
+$text-color-desert: white;
+$text-color-wool: black;
+$text-color-brick: black;
+$text-color-lumber: black;
+$text-color-grain: black;
+$text-color-ore: black;
+
+.map-board {
+  display: flex;
+  width: 410px;
+  height: 445px;
+  border: solid 1px black;
+  position: relative;
+
+  .field {
+    &.field-desert {
+      background-color: $color-desert;
+      color: $text-color-desert;
+    }
+    &.field-wool {
+      background-color: $color-wool;
+      color: $text-color-wool;
+    }
+    &.field-brick {
+      background-color: $color-brick;
+      color: $text-color-brick;
+    }
+    &.field-lumber {
+      background-color: $color-lumber;
+      color: $text-color-lumber;
+    }
+    &.field-grain {
+      background-color: $color-grain;
+      color: $text-color-grain;
+    }
+    &.field-ore {
+      background-color: $color-ore;
+      color: $text-color-ore;
+    }
+  }
+}

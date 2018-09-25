@@ -53,3 +53,12 @@ const drawField = (index, resource, number) => {
   fillHexOutline(color);
   drawFieldNumber(baseX, baseY, textColor, number)
 };
+
+const shapeCSSMap = () => {
+  const fields = document.getElementsByClassName("map-board")[0].childNodes;
+  for (let i=0; i<19; i++) {
+    const field = fields[2*i + 1];
+    const dims = dimsForField[i];
+    field.setAttribute("style", `position: absolute; top: ${dims[1]}px; left: ${dims[0]}px;`);
+  }
+};

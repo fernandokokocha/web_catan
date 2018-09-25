@@ -16,7 +16,7 @@
             Players
           </h4>
           <% @catan.players.each do |player| %>
-          <%= render partial: 'player', locals: { player: player} %>
+            <%= render partial: 'player', locals: { player: player} %>
           <% end %>
         </div>
       </div>
@@ -43,6 +43,21 @@
   <div class="container">
     <div class="level">
       <div class="box level-item">
+        <div class="map-board">
+          <% @catan.map.fields.each.with_index do |field, index| %>
+            <div class="hexagon field field-<%= field.resource %>" ></div>
+          <% end %>
+          <!-- <div class="hexagon field field-desert"></div>a
+          <div class="hexagon field field-wool"></div>b -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="level">
+      <div class="box level-item">
         <canvas id="map"></canvas>
       </div>
     </div>
@@ -59,4 +74,5 @@ resizeCanvas();
     <%= field.number %>,
   );
 <% end %>
+shapeCSSMap();
 </script>

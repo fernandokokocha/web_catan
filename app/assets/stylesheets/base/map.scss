@@ -1,16 +1,8 @@
-$color-desert: black;
-$color-wool: lightgreen;
-$color-brick: darkred;
-$color-lumber: green;
-$color-grain: yellow;
-$color-ore: lightgrey;
+@import "./variables";
 
-$text-color-desert: white;
-$text-color-wool: black;
-$text-color-brick: black;
-$text-color-lumber: black;
-$text-color-grain: black;
-$text-color-ore: black;
+#map {
+  border: 1px black solid;
+}
 
 .map-board {
   display: flex;

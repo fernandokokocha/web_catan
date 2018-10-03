@@ -1,0 +1,29 @@
+@import "./variables";
+
+$field-width: 90px;
+$field-height: 80px;
+$field-width-margin: 5px;
+$field-height-margin: 3.5px;
+
+.hexagon {
+  shape-outside: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%);
+  clip-path: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%);
+  transition: transform .2s;
+
+  &.field {
+    width: $field-width;
+    height: $field-height;
+    z-index: $z-index-bigger;
+
+    &:hover {
+      transform: scale(1.5);
+      z-index: $z-index-biggest;
+    }
+  }
+
+  &.background {
+    width: $field-width + 2*$field-width-margin;
+    height: $field-height + 2*$field-height-margin;
+    background-color: $background-color;
+  }
+}

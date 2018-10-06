@@ -20,12 +20,8 @@ $field-height-epsilon: 1px;
     z-index: $z-index-bigger;
 
     &:hover {
-      transform: scale(1.5);
-      z-index: $z-index-biggester;
-
-      & + div {
-        transform: scale(1.5);
-        z-index: $z-index-biggest;
+      & + .background {
+        background-color: $background-color-selected;
       }
     }
   }

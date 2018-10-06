@@ -19,7 +19,7 @@ $field-height-epsilon: 1px;
 
     &:hover {
       transform: scale(1.5);
-      z-index: $z-index-biggest + 1;
+      z-index: $z-index-biggester;
 
       & + div {
         transform: scale(1.5);

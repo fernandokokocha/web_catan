@@ -55,25 +55,7 @@
     </div>
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <div class="level">
-      <div class="box level-item">
-        <canvas id="map"></canvas>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <script>
-resizeCanvas();
-<% @catan.map.fields.each.with_index do |field, index| %>
-  drawField(
-    <%= field.index %>,
-    '<%= field.resource %>',
-    <%= field.number %>,
-  );
-<% end %>
-shapeCSSMap();
+shapeMap();
 </script>

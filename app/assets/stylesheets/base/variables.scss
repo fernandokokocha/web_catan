@@ -18,3 +18,12 @@ $z-index-normal: 0;
 $z-index-bigger: 1;
 $z-index-biggest: 2;
 $z-index-biggester: 3;
+
+$hexWidth: 155px;
+$hexHeight: 135px;
+
+$marginWidth: 5px;
+$marginHeight: 5px;
+
+$canvasWidth: 2*$marginWidth + 4*$hexWidth;
+$canvasHeight: 2*$marginHeight + 5*$hexHeight;

@@ -6,8 +6,8 @@
 
 .map-board {
   display: flex;
-  width: 410px;
-  height: 445px;
+  width: $canvasWidth;
+  height: $canvasHeight;
   border: solid 1px black;
   position: relative;
 

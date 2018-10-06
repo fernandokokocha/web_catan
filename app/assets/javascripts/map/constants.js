@@ -1,17 +1,12 @@
 const hexSize = {
-  x: 100,
-  y: 87,
+  x: 155,
+  y: 135,
 };
 
 const margin = {
   x: 5,
   y: 5
 };
-
-const canvasSize = {
-  x: 2*margin.x + 4*hexSize.x,
-  y: 2*margin.y + 5*hexSize.y,
-}
 
 const dimsForBackground = [
   [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 4 / 2)],
@@ -35,10 +30,10 @@ const dimsForBackground = [
   [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y / 2)]
 ]
 
-const fieldWidthMargin = 5;
-const fieldHeightMargin = 3.5;
+const fieldWidthPadding = 10;
+const fieldHeightPadding = 9;
 const dimsForField = [];
-dimsForBackground.forEach((dims) => dimsForField.push([dims[0] + fieldWidthMargin, dims[1] + fieldHeightMargin]));
+dimsForBackground.forEach((dims) => dimsForField.push([dims[0] + fieldWidthPadding, dims[1] + fieldHeightPadding]));
 
 const colorForResource = {
   'desert': 'black',

@@ -1,9 +1,9 @@
 @import "./variables";
 
 $field-width: 90px;
-$field-height: 80px;
+$field-height: 78px;
 $field-width-margin: 5px;
-$field-height-margin: 3.5px;
+$field-height-margin: 4.5px;
 $field-width-epsilon: 1px;
 $field-height-epsilon: 1px;
 
@@ -19,7 +19,12 @@ $field-height-epsilon: 1px;
 
     &:hover {
       transform: scale(1.5);
-      z-index: $z-index-biggest;
+      z-index: $z-index-biggest + 1;
+
+      & + div {
+        transform: scale(1.5);
+        z-index: $z-index-biggest;
+      }
     }
   }
 

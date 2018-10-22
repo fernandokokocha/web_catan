@@ -7,6 +7,20 @@ $field-height-margin: 9px;
 $field-width-epsilon: 1px;
 $field-height-epsilon: 1px;
 
+$background-width: $field-width + 2*$field-width-margin + $field-width-epsilon;
+$background-height: $field-height + 2*$field-height-margin + $field-height-epsilon;
+
+@mixin background-sized {
+  width: $background-width;
+  height: $background-height;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hexagon {
   shape-outside: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%);
   clip-path: polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%);
@@ -27,8 +41,41 @@ $field-height-epsilon: 1px;
   }
 
   &.background {
-    width: $field-width + 2*$field-width-margin + $field-width-epsilon;
-    height: $field-height + 2*$field-height-margin + $field-height-epsilon;
+    @include background-sized;
     background-color: $background-color;
+  }
+}
+
+.caption {
+  z-index: $z-index-biggest;
+  color: black;
+  pointer-events: none;
+  @include background-sized;
+  @include flex-center;
+
+  &.caption-2,
+  &.caption-12 {
+    font-size: 32px;
+  }
+
+  &.caption-3,
+  &.caption-11 {
+    font-size: 34px;
+  }
+
+  &.caption-4,
+  &.caption-10 {
+    font-size: 36px;
+  }
+
+  &.caption-5,
+  &.caption-9 {
+    font-size: 38px;
+  }
+
+  &.caption-6,
+  &.caption-8 {
+    font-size: 40px;
+    color: red;
   }
 }

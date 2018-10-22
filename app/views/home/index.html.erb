@@ -47,6 +47,7 @@
           <% @catan.map.fields.each.with_index do |field, index| %>
             <div class="hexagon field field-<%= field.resource %> field-<%= field.number %>" ></div>
             <div class="hexagon background field-background-<%= field.number %>" ></div>
+            <div class="caption caption-<%= field.number %>"><%= field.number %></div>
           <% end %>
         </div>
       </div>

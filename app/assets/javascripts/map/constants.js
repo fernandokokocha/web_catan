@@ -34,23 +34,3 @@ const fieldWidthPadding = 10;
 const fieldHeightPadding = 9;
 const dimsForField = [];
 dimsForBackground.forEach((dims) => dimsForField.push([dims[0] + fieldWidthPadding, dims[1] + fieldHeightPadding]));
-
-const colorForResource = {
-  'desert': 'black',
-  'wool': 'lightgreen',
-  'brick': 'darkred',
-  'lumber': 'green',
-  'grain': 'yellow',
-  'ore': 'lightgrey',
-}
-
-const textColorForResource = {
-  'desert': 'white',
-  'wool': 'black',
-  'brick': 'black',
-  'lumber': 'black',
-  'grain': 'black',
-  'ore': 'black',
-}
-
-const dangerColorForResource = 'red';

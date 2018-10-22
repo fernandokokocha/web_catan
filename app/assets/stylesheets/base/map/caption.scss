@@ -1,0 +1,41 @@
+@import "../variables";
+@import "../mixins";
+
+.caption {
+  z-index: $z-index-biggest;
+  color: $caption-color;
+  pointer-events: none;
+  @include background-sized;
+  @include flex-center;
+
+  &.caption-2,
+  &.caption-12 {
+    font-size: 32px;
+  }
+
+  &.caption-3,
+  &.caption-11 {
+    font-size: 34px;
+  }
+
+  &.caption-4,
+  &.caption-10 {
+    font-size: 36px;
+  }
+
+  &.caption-5,
+  &.caption-9 {
+    font-size: 38px;
+  }
+
+  &.caption-6,
+  &.caption-8 {
+    font-size: 40px;
+    color: $caption-color-danger;
+  }
+
+  &.caption-7 {
+    font-size: 40px;
+    color: $caption-color-light;
+  }
+}

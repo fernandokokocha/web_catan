@@ -27,3 +27,17 @@ $marginHeight: 5px;
 
 $canvasWidth: 2*$marginWidth + 4*$hexWidth;
 $canvasHeight: 2*$marginHeight + 5*$hexHeight;
+
+$field-width: 135px;
+$field-height: 117px;
+$field-width-margin: 10px;
+$field-height-margin: 9px;
+$field-width-epsilon: 1px;
+$field-height-epsilon: 1px;
+
+$background-width: $field-width + 2*$field-width-margin + $field-width-epsilon;
+$background-height: $field-height + 2*$field-height-margin + $field-height-epsilon;
+
+$caption-color: black;
+$caption-color-danger: red;
+$caption-color-light: white;

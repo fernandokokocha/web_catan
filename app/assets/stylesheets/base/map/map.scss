@@ -1,0 +1,13 @@
+@import "../variables";
+
+#map {
+  border: 1px black solid;
+}
+
+.map-board {
+  display: flex;
+  width: $canvasWidth;
+  height: $canvasHeight;
+  border: solid 1px black;
+  position: relative;
+}

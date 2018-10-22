@@ -1,0 +1,7 @@
+@import "../variables";
+@import "../mixins";
+
+.background {
+  @include background-sized;
+  background-color: $background-color;
+}

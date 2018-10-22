@@ -1,17 +1,11 @@
-@import "./variables";
-
-#map {
-  border: 1px black solid;
-}
+@import "../variables";
 
 .map-board {
-  display: flex;
-  width: $canvasWidth;
-  height: $canvasHeight;
-  border: solid 1px black;
-  position: relative;
-
   .field {
+    width: $field-width;
+    height: $field-height;
+    z-index: $z-index-bigger;
+
     &.field-desert {
       background-color: $color-desert;
       color: $text-color-desert;
@@ -35,6 +29,12 @@
     &.field-ore {
       background-color: $color-ore;
       color: $text-color-ore;
+    }
+
+    &:hover {
+      & + .background {
+        background-color: $background-color-selected;
+      }
     }
   }
 }

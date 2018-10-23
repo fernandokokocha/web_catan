@@ -6,12 +6,12 @@
   width: 20px;
   height: 20px;
   transform: translate(-10px, -10px);
-  background-color: white;
+  background-color: $place-color;
   z-index: $z-index-tier-4;
 
   &:hover {
     & + .place-background {
-      background-color: red;
+      background-color: $place-background-color-selected;
     }
   }
 }
@@ -22,6 +22,6 @@
   width: 26px;
   height: 26px;
   transform: translate(-13px, -13px);
-  background-color: black;
+  background-color: $place-background-color;
   z-index: $z-index-tier-3;
 }

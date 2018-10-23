@@ -1,6 +1,7 @@
 const shapeMap = () => {
-  const mapNodes = document.getElementsByClassName("map-board")[0].childNodes;
-  const mapComponents = Array.from(mapNodes).filter(el => el.nodeName != '#text');
+  const fieldRootNode = document.getElementsByClassName("fields")[0];
+  const fieldNodes = fieldRootNode.childNodes;
+  const mapComponents = Array.from(fieldNodes).filter(el => el.nodeName != '#text');
 
   const fieldsCount = 19;
   for (let i=0; i<fieldsCount; i++) {

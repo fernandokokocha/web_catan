@@ -2,7 +2,7 @@
 @import "../base/mixins";
 
 .caption {
-  z-index: $z-index-biggest;
+  z-index: $z-index-tier-3;
   color: $caption-color;
   pointer-events: none;
   @include background-sized;

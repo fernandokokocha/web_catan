@@ -4,7 +4,7 @@
   .field {
     width: $field-width;
     height: $field-height;
-    z-index: $z-index-bigger;
+    z-index: $z-index-tier-2;
 
     &.field-desert {
       background-color: $color-desert;

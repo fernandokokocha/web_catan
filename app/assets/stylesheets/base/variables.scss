@@ -15,9 +15,10 @@ $text-color-ore: black;
 $background-color: #333333;
 $background-color-selected: red;
 
-$z-index-normal: 0;
-$z-index-bigger: 1;
-$z-index-biggest: 2;
+$z-index-tier-1: 0;
+$z-index-tier-2: 1;
+$z-index-tier-3: 2;
+$z-index-tier-4: 3;
 
 $hexWidth: 155px;
 $hexHeight: 135px;

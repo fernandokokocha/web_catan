@@ -7,7 +7,7 @@
   height: 20px;
   transform: translate(-10px, -10px);
   background-color: white;
-  z-index: $z-index-biggest + 1;
+  z-index: $z-index-tier-4;
 
   &:hover {
     & + .place-background {
@@ -23,5 +23,5 @@
   height: 26px;
   transform: translate(-13px, -13px);
   background-color: black;
-  z-index: $z-index-biggest;
+  z-index: $z-index-tier-3;
 }

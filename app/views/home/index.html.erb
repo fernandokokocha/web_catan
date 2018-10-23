@@ -46,7 +46,13 @@
         <div class="map-board">
           <div class="fields">
             <% @catan.map.fields.each.with_index do |field, index| %>
-            <%= render partial: 'field', locals: { field: field } %>
+              <%= render partial: 'field', locals: { field: field } %>
+            <% end %>
+          </div>
+          <div class="places">
+            <% @catan.map.places.each.with_index do |place, index| %>
+              <div class="place"></div>
+              <div class="place-background"></div>
             <% end %>
           </div>
         </div>

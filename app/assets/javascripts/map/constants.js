@@ -4,8 +4,8 @@ const hexSize = {
 };
 
 const margin = {
-  x: 5,
-  y: 5
+  x: 20,
+  y: 20
 };
 
 const dimsForBackground = [

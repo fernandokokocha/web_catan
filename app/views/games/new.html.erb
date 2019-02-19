@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Players
+          </h4>
+          <% @catan.players.each do |player| %>
+            <%= render partial: 'player', locals: { player: player} %>
+          <% end %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Current player
+          </h4>
+          <%= render partial: 'player', locals: { player: @catan.current_player} %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box">
+          <h4 class="is-size-4">
+            Turn
+          </h4>
+          <%= @catan.turn %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="level">
+      <div class="level-item">
+        <%= render partial: 'map', locals: { fields: @catan.map.fields, places: @catan.map.places} %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+shapeMap();
+</script>

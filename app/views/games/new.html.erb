@@ -6,7 +6,7 @@
           <h4 class="is-size-4">
             Players
           </h4>
-          <% @catan.players.each do |player| %>
+          <% @game.players.each do |player| %>
             <%= render partial: 'player', locals: { player: player} %>
           <% end %>
         </div>
@@ -16,7 +16,7 @@
           <h4 class="is-size-4">
             Current player
           </h4>
-          <%= render partial: 'player', locals: { player: @catan.current_player} %>
+          <%= render partial: 'player', locals: { player: @game.current_player} %>
         </div>
       </div>
       <div class="column">
@@ -24,7 +24,7 @@
           <h4 class="is-size-4">
             Turn
           </h4>
-          <%= @catan.turn %>
+          <%= @game.turn %>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
   <div class="container">
     <div class="level">
       <div class="level-item">
-        <%= render partial: 'map', locals: { fields: @catan.map.fields, places: @catan.map.places} %>
+        <%= render partial: 'map', locals: { fields: @game.tiles, places: []} %>
       </div>
     </div>
   </div>

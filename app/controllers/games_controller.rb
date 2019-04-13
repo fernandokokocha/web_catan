@@ -6,16 +6,14 @@ class GamesController < ApplicationController
   private
 
   def generate_new_game
+    @game = Game.new
     players = [
       { name: 'Bartek', color: :orange },
       { name: 'John', color: :red }
     ]
-    response = SetupGame.new(players: players).invoke
+    setup_game = SetupGame.new(players_params: players)
+    @game.handle(setup_game)
 
-    @catan = Catan.new
-    @catan.map = response[:map]
-    @catan.players = response[:players]
-    @catan.current_player = response[:current_player]
-    @catan.turn = response[:turn]
+    @game
   end
 end

@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/fernandokokocha/new_catan.git
-  revision: f6c969d857e03d853999e5b5a474d361040b42c4
-  tag: v0.0.3
+  revision: fd37a0964ef85aa5d0808db1cf0b07f6338406ca
+  tag: v0.0.4
   specs:
-    catan (0.0.3-x86_64-darwin-18)
+    catan (0.0.4-x86_64-darwin-18)
 
 GEM
   remote: https://rubygems.org/

@@ -15,5 +15,6 @@ class GamesController < ApplicationController
     @game.handle(setup_game)
 
     @tiles = @game.tiles.sort_by { |tile| tile.index.to_i }
+    @places = [nil] * 54
   end
 end

@@ -14,6 +14,6 @@ class GamesController < ApplicationController
     setup_game = SetupGame.new(players_params: players)
     @game.handle(setup_game)
 
-    @game
+    @tiles = @game.tiles.sort_by { |tile| tile.index.to_i }
   end
 end

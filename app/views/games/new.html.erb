@@ -39,6 +39,16 @@
     </div>
   </div>
 </section>
+<section class="section">
+  <div class="container">
+    <details>
+        <summary>State (click to expand)</summary>
+        <pre>
+          <%= JSON.pretty_generate(@state) %>
+        </pre>
+    </details>
+  </div>
+</section>
 
 <script>
 shapeMap();

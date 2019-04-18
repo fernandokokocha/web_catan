@@ -16,5 +16,6 @@ class GamesController < ApplicationController
 
     @tiles = @game.tiles.sort_by { |tile| tile.index.to_i }
     @places = [nil] * 54
+    @state = GameSerializer.new(@game).call
   end
 end

@@ -6,7 +6,7 @@
   width: 20px;
   height: 20px;
   transform: translate(-10px, -10px);
-  background-color: $place-color;
+  background-color: $place-unsettled-color;
   z-index: $z-index-tier-4;
 
   &:hover {
@@ -17,11 +17,11 @@
 }
 
 .place-orange {
-  background-color: orange;
+  background-color: $place-orange-color;
 }
 
 .place-red {
-  background-color: red;  
+  background-color: $place-red-color;
 }
 
 .place-background {

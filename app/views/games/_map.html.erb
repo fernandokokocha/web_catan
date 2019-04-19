@@ -5,9 +5,8 @@
     <% end %>
   </div>
   <div class="places">
-    <% places.each.with_index do %>
-      <div class="place"></div>
-      <div class="place-background"></div>
+    <% places.each do %>
+      <%= render partial: 'place' %>
     <% end %>
   </div>
 </div>

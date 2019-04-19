@@ -5,8 +5,8 @@
     <% end %>
   </div>
   <div class="places">
-    <% places.each do %>
-      <%= render partial: 'place' %>
+    <% places.each do |place| %>
+      <%= render partial: 'place', locals: { place: place } %>
     <% end %>
   </div>
 </div>

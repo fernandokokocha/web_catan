@@ -34,7 +34,53 @@ const shapePlaces = () => {
   }
 };
 
+const shapeRoads = () => {
+  const roadRootNode = document.getElementsByClassName("roads")[0];
+  const roadNodes = roadRootNode.childNodes;
+  const roadComponents = Array.from(roadNodes).filter(el => el.nodeName != '#text');
+
+  roadComponents.forEach((roadComponent) => {
+    const from = parseInt(roadComponent.dataset.from);
+    const to = parseInt(roadComponent.dataset.to);
+    const fromDims = dimsForPlace[from - 1];
+    const toDims = dimsForPlace[to - 1];
+
+    roadComponent.setAttribute('style', calcRoadStyles(fromDims[0], fromDims[1], toDims[0], toDims[1]));
+  })
+}
+
+const calcRoadStyles = (x1, y1, x2, y2) => {
+    const a = x1 - x2,
+          b = y1 - y2,
+          c = Math.sqrt(a * a + b * b);
+
+    const sx = (x1 + x2) / 2,
+          sy = (y1 + y2) / 2;
+
+    const x = sx - c / 2,
+          y = sy;
+
+    const alpha = Math.PI - Math.atan2(-b, a);
+
+    return getStyles(x, y, c, alpha);
+}
+
+const getStyles = (x, y, length, angle) => `
+  border-width: 5px;
+  border-style: solid;
+  width: ${length}px;
+  height: 0px;
+  -moz-transform: rotate(${angle}rad);
+  -webkit-transform: rotate(${angle}rad);
+  -o-transform: rotate(${angle}rad);
+  -ms-transform: rotate(${angle}rad);
+  position: absolute;
+  top: ${y}px;
+  left: ${x}px;
+`;
+
 const shapeMap = () => {
   shapeFields();
   shapePlaces();
+  shapeRoads();
 };

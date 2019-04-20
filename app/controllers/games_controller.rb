@@ -22,7 +22,7 @@ class GamesController < ApplicationController
   def render_game
     spots = [{ owner: nil, color: nil, builing: nil }] * 54
     game.settlements.each do |settlement|
-      spots[settlement.spot_index] = {
+      spots[settlement.spot_index - 1] = {
         builing: :settlement,
         owner: settlement.owner.name,
         color: settlement.owner.color
@@ -31,6 +31,7 @@ class GamesController < ApplicationController
     render :game, locals: {
       tiles: game.tiles.sort_by { |tile| tile.index.to_i },
       places: spots,
+      roads: game.roads,
       state: GameSerializer.new(game).call,
       current_player: game.current_player
     }

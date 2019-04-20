@@ -1,0 +1,11 @@
+@import '../base/variables';
+
+.road {}
+
+.road-orange {
+  border-color: $road-orange-color;
+}
+
+.road-red {
+  border-color: $road-red-color;
+}

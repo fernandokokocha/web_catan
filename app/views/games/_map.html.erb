@@ -9,4 +9,9 @@
       <%= render partial: 'place', locals: { place: place } %>
     <% end %>
   </div>
+  <div class="roads">
+    <% roads.each do |road| %>
+      <%= render partial: 'road', locals: { road: road } %>
+    <% end %>
+  </div>
 </div>

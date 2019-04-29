@@ -6,7 +6,7 @@
           <h4 class="is-size-4">
             Players
           </h4>
-          <% @game.players.each do |player| %>
+          <% players.each do |player| %>
             <%= render partial: 'player', locals: { player: player} %>
           <% end %>
         </div>
@@ -24,7 +24,7 @@
           <h4 class="is-size-4">
             Turn
           </h4>
-          <%= @game.turn %>
+          <%= turn %>
         </div>
       </div>
     </div>
@@ -72,6 +72,7 @@
               </div>
             </div>
           </div>
+          <%= hidden_field_tag(:state, state) %>
           <div class="field">
             <div class="control">
               <%= submit_tag("Build", class: 'button is-link') %>

@@ -1,0 +1,32 @@
+<%= form_tag(game_path, method: :patch) do %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= label_tag(:settlement, "Settlement:", class: 'label') %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= text_field(:settlement, :spot_index, class: 'input') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= label_tag(:road, "Road:", class: 'label') %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= text_field(:road, :to, class: 'input') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= hidden_field_tag(:state, state) %>
+  <div class="field">
+    <div class="control">
+      <%= submit_tag("Build", class: 'button is-link') %>
+    </div>
+  </div>
+<% end %>

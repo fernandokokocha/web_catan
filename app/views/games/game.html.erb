@@ -6,7 +6,7 @@
           <h4 class="is-size-4">
             Players
           </h4>
-          <% @game.players.each do |player| %>
+          <% players.each do |player| %>
             <%= render partial: 'player', locals: { player: player} %>
           <% end %>
         </div>
@@ -16,7 +16,7 @@
           <h4 class="is-size-4">
             Current player
           </h4>
-          <%= render partial: 'player', locals: { player: current_player} %>
+          <%= render partial: 'player', locals: { player: current_player } %>
         </div>
       </div>
       <div class="column">
@@ -24,7 +24,7 @@
           <h4 class="is-size-4">
             Turn
           </h4>
-          <%= @game.turn %>
+          <%= turn %>
         </div>
       </div>
     </div>
@@ -32,52 +32,25 @@
 </section>
 <section class="section">
   <div class="container">
+    <h4 class="is-size-4">
+      Actions
+    </h4>
+    <% if error %>
+      <article class="message is-danger">
+        <div class="message-header">
+          <p>Action unsuccessful</p>
+        </div>
+        <div class="message-body">
+          <%= error %>
+        </div>
+      </article>
+    <% end %>
     <div class="columns">
       <div class="column is-4">
-        <h4 class="is-size-4">
-          Actions
-        </h4>
-        <% if error %>
-          <article class="message is-danger">
-            <div class="message-header">
-              <p>Action unsuccessful</p>
-            </div>
-            <div class="message-body">
-              <%= error %>
-            </div>
-          </article>
-        <% end %>
-        <%= form_tag(game_path, method: :patch) do %>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <%= label_tag(:settlement, "Settlement:", class: 'label') %>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <%= text_field(:settlement, :spot_index, class: 'input') %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <%= label_tag(:road, "Road:", class: 'label') %>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <%= text_field(:road, :to, class: 'input') %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <%= submit_tag("Build", class: 'button is-link') %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: 'settle_with_road_form', locals: { state: state } %>
+      </div>
+      <div class="column is-4">
+        <%= render partial: 'end_turn_form', locals: { state: state } %>
       </div>
     </div>
   </div>

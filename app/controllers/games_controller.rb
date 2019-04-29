@@ -8,13 +8,9 @@ class GamesController < ApplicationController
   end
 
   def update
-    game.handle(SettleWithRoad.new(settlement_spot: 1, road_extension_spot: 2))
-    game.handle(EndTurn.new)
-    game.handle(SettleWithRoad.new(settlement_spot: 3, road_extension_spot: 4))
-    game.handle(EndTurn.new)
-    game.handle(SettleWithRoad.new(settlement_spot: 5, road_extension_spot: 6))
-    game.handle(EndTurn.new)
-    game.handle(SettleWithRoad.new(settlement_spot: 7, road_extension_spot: 8))
+    settlement_spot = Integer(params[:settlement][:spot_index])
+    road_extension_spot = Integer(params[:road][:to])
+    game.handle(SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot))
     game.handle(EndTurn.new)
     render_game
   end

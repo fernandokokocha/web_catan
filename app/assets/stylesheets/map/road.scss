@@ -1,11 +1,17 @@
 @import '../base/variables';
 
-.road {}
+.road {
+  border-color: $road-background-color;
+}
+
+.road:hover {
+  border-color: $road-background-color-selected;
+}
 
 .road-orange {
-  border-color: $road-orange-color;
+  background-color: $road-orange-color;
 }
 
 .road-red {
-  border-color: $road-red-color;
+  background-color: $road-red-color;
 }

@@ -65,19 +65,22 @@ const calcRoadStyles = (x1, y1, x2, y2) => {
     return getStyles(x, y, c, alpha);
 }
 
-const getStyles = (x, y, length, angle) => `
-  border-width: 5px;
-  border-style: solid;
-  width: ${length}px;
-  height: 0px;
-  -moz-transform: rotate(${angle}rad);
-  -webkit-transform: rotate(${angle}rad);
-  -o-transform: rotate(${angle}rad);
-  -ms-transform: rotate(${angle}rad);
-  position: absolute;
-  top: ${y}px;
-  left: ${x}px;
-`;
+const getStyles = (x, y, length, angle) => {
+  const borderWidth = 3;
+  return `
+    border-width: ${borderWidth}px;
+    border-style: solid;
+    width: ${length}px;
+    height: 12px;
+    -moz-transform: rotate(${angle}rad);
+    -webkit-transform: rotate(${angle}rad);
+    -o-transform: rotate(${angle}rad);
+    -ms-transform: rotate(${angle}rad);
+    position: absolute;
+    top: ${y - borderWidth*2}px;
+    left: ${x}px;
+  `;
+}
 
 const shapeMap = () => {
   shapeFields();

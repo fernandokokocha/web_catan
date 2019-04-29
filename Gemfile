@@ -16,7 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "bulma-rails", "~> 0.7.1"
 
-gem 'catan', git: 'https://github.com/fernandokokocha/new_catan.git', tag: 'v0.3.0'
+gem 'catan', git: 'https://github.com/fernandokokocha/new_catan.git', tag: 'v0.3.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

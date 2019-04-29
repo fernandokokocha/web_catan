@@ -12,8 +12,13 @@ $text-color-lumber: black;
 $text-color-grain: black;
 $text-color-ore: black;
 
+$player-red-color: salmon;
+$player-orange-color: orange;
+
+$hover-color: red;
+
 $background-color: #555555;
-$background-color-selected: red;
+$background-color-selected: $hover-color;
 
 $z-index-tier-1: 0;
 $z-index-tier-2: 1;
@@ -44,12 +49,8 @@ $caption-color-danger: red;
 $caption-color-light: white;
 
 $place-unsettled-color: white;
-$place-orange-color: orange;
-$place-red-color: salmon;
 $place-background-color: black;
-$place-background-color-selected: red;
+$place-background-color-selected: $hover-color;
 
 $road-background-color: black;
-$road-background-color-selected: red;
-$road-orange-color: orange;
-$road-red-color: salmon;
+$road-background-color-selected: $hover-color;

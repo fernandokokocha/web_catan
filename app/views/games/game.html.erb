@@ -37,6 +37,16 @@
         <h4 class="is-size-4">
           Actions
         </h4>
+        <% if error %>
+          <article class="message is-danger">
+            <div class="message-header">
+              <p>Action unsuccessful</p>
+            </div>
+            <div class="message-body">
+              <%= error %>
+            </div>
+          </article>
+        <% end %>
         <%= form_tag(game_path, method: :patch) do %>
           <div class="field is-horizontal">
             <div class="field-label is-normal">

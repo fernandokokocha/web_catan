@@ -10,8 +10,7 @@ class GamesController < ApplicationController
   def update
     settlement_spot = Integer(params[:settlement][:spot_index])
     road_extension_spot = Integer(params[:road][:to])
-    game.handle(SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot))
-    game.handle(EndTurn.new)
+    @result = game.handle(SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot))
     render_game
   end
 
@@ -31,12 +30,20 @@ class GamesController < ApplicationController
       }
     end
     render :game, locals: {
+      error: error_message,
       tiles: game.tiles.sort_by { |tile| tile.index.to_i },
       places: spots,
       roads: game.roads,
       state: GameSerializer.new(game).call,
       current_player: game.current_player
     }
+  end
+
+  def error_message
+    return nil if @result.nil?
+    message = @result.message
+    return nil if message.empty?
+    return message
   end
 
   def generate_new_game

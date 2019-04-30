@@ -6,7 +6,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= text_field(:settlement, :spot_index, class: 'input') %>
+          <%= text_field(:settlement, :spot_index, class: 'input', required: true, disabled: disabled) %>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= text_field(:road, :to, class: 'input') %>
+          <%= text_field(:road, :to, class: 'input', required: true, disabled: disabled) %>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
   <%= hidden_field_tag(:state, state) %>
   <div class="field">
     <div class="control">
-      <%= submit_tag("Build", class: 'button is-link') %>
+      <%= submit_tag("Build", class: 'button is-link', disabled: disabled) %>
     </div>
   </div>
 <% end %>

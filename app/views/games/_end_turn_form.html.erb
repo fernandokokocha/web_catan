@@ -2,7 +2,7 @@
   <%= hidden_field_tag(:state, state) %>
   <div class="field">
     <div class="control">
-      <%= submit_tag("End turn", class: 'button is-link') %>
+      <%= submit_tag("End turn", class: 'button is-link', disabled: disabled) %>
     </div>
   </div>
 <% end %>

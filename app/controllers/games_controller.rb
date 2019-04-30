@@ -56,7 +56,8 @@ class GamesController < ApplicationController
       state: GameSerializer.new(game).call.to_json,
       turn: game.turn,
       players: game.players,
-      current_player: game.current_player
+      current_player: game.current_player,
+      action_taken: game.action_taken?
     }
   end
 

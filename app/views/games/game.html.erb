@@ -1,56 +1,34 @@
+<% if error %>
+  <%= render partial: 'error_pane', locals: { error: error } %>
+<% end %>
 <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column">
+      <div class="column is-2">
+        <div class="box">
+          <h4 class="is-size-4">
+            Turn: #<%= turn %>
+          </h4>
+          <%= render partial: 'end_turn_form', locals: { state: state, disabled: !action_taken } %>
+        </div>
+      </div>
+      <div class="column is-4">
         <div class="box">
           <h4 class="is-size-4">
             Players
           </h4>
           <% players.each do |player| %>
-            <%= render partial: 'player', locals: { player: player} %>
+            <%= render partial: 'player', locals: { player: player, is_current: player == current_player } %>
           <% end %>
         </div>
       </div>
-      <div class="column">
+      <div class="column is-2">
         <div class="box">
           <h4 class="is-size-4">
-            Current player
+            Settle with road
           </h4>
-          <%= render partial: 'player', locals: { player: current_player } %>
+          <%= render partial: 'settle_with_road_form', locals: { state: state, disabled: action_taken } %>
         </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <h4 class="is-size-4">
-            Turn
-          </h4>
-          <%= turn %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h4 class="is-size-4">
-      Actions
-    </h4>
-    <% if error %>
-      <article class="message is-danger">
-        <div class="message-header">
-          <p>Action unsuccessful</p>
-        </div>
-        <div class="message-body">
-          <%= error %>
-        </div>
-      </article>
-    <% end %>
-    <div class="columns">
-      <div class="column is-4">
-        <%= render partial: 'settle_with_road_form', locals: { state: state } %>
-      </div>
-      <div class="column is-4">
-        <%= render partial: 'end_turn_form', locals: { state: state } %>
       </div>
     </div>
   </div>

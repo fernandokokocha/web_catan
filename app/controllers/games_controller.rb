@@ -23,16 +23,19 @@ class GamesController < ApplicationController
   def perform_settle_with_road
     settlement_spot = Integer(params[:settlement][:spot_index])
     road_extension_spot = Integer(params[:road][:to])
-    state = JSON.parse(params[:state])
-    game = GameDeserializer.new(state).call
-    @result = game.handle(SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot))
-    render_game(game)
+    interactor = SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot)
+    handle_interactor(interactor)
   end
 
   def perform_end_turn
+    interactor = EndTurn.new
+    handle_interactor(interactor)
+  end
+
+  def handle_interactor(interactor)
     state = JSON.parse(params[:state])
     game = GameDeserializer.new(state).call
-    @result = game.handle(EndTurn.new)
+    @result = game.handle(interactor)
     render_game(game)
   end
 

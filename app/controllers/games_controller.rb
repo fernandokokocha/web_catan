@@ -45,7 +45,6 @@ class GamesController < ApplicationController
         color: settlement.owner.color
       }
     end
-    pp GameSerializer.new(game).call.to_json
     render :game, locals: {
       error: error_message,
       tiles: game.tiles.sort_by { |tile| tile.index.to_i },

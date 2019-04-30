@@ -1,0 +1,17 @@
+<div class="map-board">
+  <div class="fields">
+    <% fields.each do |field| %>
+      <%= render partial: 'map/field', locals: { field: field } %>
+    <% end %>
+  </div>
+  <div class="places">
+    <% places.each do |place| %>
+      <%= render partial: 'map/place', locals: { place: place } %>
+    <% end %>
+  </div>
+  <div class="roads">
+    <% roads.each do |road| %>
+      <%= render partial: 'map/road', locals: { road: road } %>
+    <% end %>
+  </div>
+</div>

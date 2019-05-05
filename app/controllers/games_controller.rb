@@ -55,7 +55,7 @@ class GamesController < ApplicationController
       roads: game.roads,
       state: GameSerializer.new(game).call.to_json,
       turn: game.turn,
-      players: game.players,
+      players: game.players.sort_by { | player| player.index },
       current_player: game.current_player,
       action_taken: game.action_taken?
     }

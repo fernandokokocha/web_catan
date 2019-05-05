@@ -1,8 +1,22 @@
-<div class="box player player-<%= player.color %> <%= 'player-current' if is_current %>">
-  <div class="is-size-4 has-text-weight-bold"><%= player.name %></div>
-  <span>Brick: <%= player.resources.brick %></span>
-  <span>Lumber: <%= player.resources.lumber %></span>
-  <span>Wool: <%= player.resources.wool %></span>
-  <span>Grain: <%= player.resources.grain %></span>
-  <span>Ore: <%= player.resources.ore %></span>
+<div class="card <%= 'player-current' if is_current %>">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48 player-<%= player.color %>">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= player.name %></p>
+        <p class="subtitle is-6">Score: <%= player.score %></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <div class="card-footer-item">B: <%= player.resources.brick %></div>
+    <div class="card-footer-item">L: <%= player.resources.lumber %></div>
+    <div class="card-footer-item">W: <%= player.resources.wool %></div>
+    <div class="card-footer-item">G: <%= player.resources.grain %></div>
+    <div class="card-footer-item">O: <%= player.resources.ore %></div>
+  </div>
 </div>

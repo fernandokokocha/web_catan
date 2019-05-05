@@ -1,16 +1,14 @@
 @import "../base/variables";
 // @import "../base/mixins";
 
-.player {
-  &.player-red {
-    background-color: $player-red-color;
-  }
+.player-red {
+  background-color: $player-red-color;
+}
 
-  &.player-orange {
-    background-color: $player-orange-color;
-  }
+.player-orange {
+  background-color: $player-orange-color;
+}
 
-  &.player-current {
-    border: 5px solid black;
-  }
+.player-current {
+  border: 5px solid black;
 }

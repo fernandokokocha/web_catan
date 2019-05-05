@@ -13,14 +13,9 @@
         </div>
       </div>
       <div class="column is-4">
-        <div class="box">
-          <h4 class="is-size-4">
-            Players
-          </h4>
-          <% players.each do |player| %>
-            <%= render partial: 'player', locals: { player: player, is_current: player == current_player } %>
-          <% end %>
-        </div>
+        <% players.each do |player| %>
+          <%= render partial: 'player', locals: { player: player, is_current: player.name == current_player.name } %>
+        <% end %>
       </div>
       <div class="column is-2">
         <div class="box">

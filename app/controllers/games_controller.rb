@@ -48,6 +48,10 @@ class GamesController < ApplicationController
         color: settlement.owner.color
       }
     end
+    players = game.players.sort_by { | player| player.index }.map do |player|
+      OpenStruct.new(index: player.index, name: player.name, color: player.color, resources: player.resources, score: game.score(player))
+      # player.score = game.score(player)
+    end
     render :game, locals: {
       error: error_message,
       tiles: game.tiles.sort_by { |tile| tile.index.to_i },
@@ -55,7 +59,7 @@ class GamesController < ApplicationController
       roads: game.roads,
       state: GameSerializer.new(game).call.to_json,
       turn: game.turn,
-      players: game.players.sort_by { | player| player.index },
+      players: players,
       current_player: game.current_player,
       action_taken: game.action_taken?
     }

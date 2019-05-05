@@ -1,12 +1,15 @@
-<section class="section">
-  <div class="container">
-      <article class="message is-danger">
-        <div class="message-header">
-          <p>Action unsuccessful</p>
-        </div>
-        <div class="message-body">
-          <%= error %>
-        </div>
-      </article>
-  </div>
-</section>
+<div class="notification is-danger">
+  <button class="delete"></button>
+  <%= error %>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    $notification = $delete.parentNode;
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>

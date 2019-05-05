@@ -12,7 +12,7 @@ const shapeFields = () => {
     const dims = dimsForField[i];
     field.setAttribute("style", `position: absolute; left: ${dims[0]}px; top: ${dims[1]}px;`);
 
-    const backgroundDims = dimsForBackground[i];
+    const backgroundDims = dimsForFieldBackground[i];
     background.setAttribute("style", `position: absolute; left: ${backgroundDims[0]}px; top: ${backgroundDims[1]}px;`);
     caption.setAttribute("style", `position: absolute; left: ${backgroundDims[0]}px; top: ${backgroundDims[1]}px;`);
   }
@@ -25,12 +25,14 @@ const shapePlaces = () => {
 
   const placeCount = 54;
   for (let i=0; i<placeCount; i++) {
-    const place = placeComponents[2*i];
-    const background = placeComponents[2*i + 1];
+    const place = placeComponents[3*i];
+    const background = placeComponents[3*i + 1];
+    const caption = placeComponents[3*i + 2];
 
     const dims = dimsForPlace[i];
     place.setAttribute("style", `position: absolute; left: ${dims[0]}px; top: ${dims[1]}px;`);
     background.setAttribute("style", `position: absolute; left: ${dims[0]}px; top: ${dims[1]}px;`);
+    caption.setAttribute("style", `position: absolute; left: ${dims[0]}px; top: ${dims[1]}px;`);
   }
 };
 

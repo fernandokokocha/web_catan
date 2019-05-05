@@ -40,17 +40,14 @@ class GamesController < ApplicationController
   end
 
   def render_game(game)
-    spots = [{ owner: nil, color: nil, builing: nil }] * 54
+    spots = (1..54).map { |index| { owner: nil, color: nil, builing: nil, index: index } }
     game.settlements.each do |settlement|
-      spots[settlement.spot_index - 1] = {
-        builing: :settlement,
-        owner: settlement.owner.name,
-        color: settlement.owner.color
-      }
+      spots[settlement.spot_index - 1][:builing] = :settlement
+      spots[settlement.spot_index - 1][:owner] = settlement.owner.name
+      spots[settlement.spot_index - 1][:color] = settlement.owner.color
     end
     players = game.players.sort_by { | player| player.index }.map do |player|
       OpenStruct.new(index: player.index, name: player.name, color: player.color, resources: player.resources, score: game.score(player))
-      # player.score = game.score(player)
     end
     render :game, locals: {
       error: error_message,

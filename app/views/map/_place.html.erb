@@ -1,9 +1,3 @@
-<% if place[:color] == :orange %>
-  <div class="place place-orange"></div>
-<% elsif place[:color] == :red %>
-  <div class="place place-red"></div>
-<% else %>
-  <div class="place"></div>
-<% end %>
-
+<div class="place place-<%= place[:color] %>"></div>
 <div class="place-background"></div>
+<div class="place-caption"><%= place[:index] %></div>

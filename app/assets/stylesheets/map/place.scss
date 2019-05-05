@@ -33,3 +33,13 @@
   background-color: $place-background-color;
   z-index: $z-index-tier-3;
 }
+
+.place-caption {
+  transform: translate(-13px, -10px);
+  font-size: 13px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  z-index: $z-index-tier-4;
+  pointer-events: none;
+}

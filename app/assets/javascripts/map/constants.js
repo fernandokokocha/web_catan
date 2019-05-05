@@ -8,14 +8,16 @@ const margin = {
   y: 20
 };
 
-const dimsForBackground = [
+const dimsForFieldBackground = [
   [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 4 / 2)],
+
   [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y)],
   [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y * 3 / 2)],
   [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y * 5 / 2)],
   [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + (hexSize.y * 6 / 2)],
   [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y * 5 / 2)],
   [margin.x + (hexSize.x * 3 / 4), margin.y + (hexSize.y * 3 / 2)],
+
   [margin.x + (hexSize.x * 3 / 4) * 2, margin.y + 0],
   [margin.x + (hexSize.x * 3 / 4) * 3, margin.y + (hexSize.y / 2)],
   [margin.x + (hexSize.x * 3 / 4) * 4, margin.y + (hexSize.y)],
@@ -33,7 +35,7 @@ const dimsForBackground = [
 const fieldWidthPadding = 10;
 const fieldHeightPadding = 9;
 const dimsForField = [];
-dimsForBackground.forEach((dims) => dimsForField.push([dims[0] + fieldWidthPadding, dims[1] + fieldHeightPadding]));
+dimsForFieldBackground.forEach((dims) => dimsForField.push([dims[0] + fieldWidthPadding, dims[1] + fieldHeightPadding]));
 
 const dimsForPlace = [
   [margin.x + (hexSize.x * 7 / 4), margin.y + (hexSize.y * 4 / 2)],

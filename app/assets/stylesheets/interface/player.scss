@@ -1,6 +1,10 @@
 @import "../base/variables";
 // @import "../base/mixins";
 
+.player-current {
+  border: 5px solid black;
+}
+
 .player-red {
   background-color: $player-red-color;
 }
@@ -9,6 +13,19 @@
   background-color: $player-orange-color;
 }
 
-.player-current {
-  border: 5px solid black;
+.card-brick {
+  background-color: $color-brick;
+}
+
+.card-lumber {
+  background-color: $color-lumber;
+}
+.card-grain {
+  background-color: $color-grain;
+}
+.card-wool {
+  background-color: $color-wool;
+}
+.card-ore {
+  background-color: $color-ore;
 }

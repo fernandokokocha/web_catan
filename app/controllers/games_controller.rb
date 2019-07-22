@@ -13,6 +13,8 @@ class GamesController < ApplicationController
       perform_settle_with_road
     when 'End turn'
       perform_end_turn
+    when 'Gain'
+      perform_gain_resources
     else
       raise StandardError, "Cannot process action: #{params[:commit]}"
     end
@@ -29,6 +31,12 @@ class GamesController < ApplicationController
 
   def perform_end_turn
     interactor = EndTurn.new
+    handle_interactor(interactor)
+  end
+
+  def perform_gain_resources
+    chit = Integer(params[:tile][:chit])
+    interactor = GainResources.new(chit: chit)
     handle_interactor(interactor)
   end
 

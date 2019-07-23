@@ -8,36 +8,37 @@ class GamesController < ApplicationController
   end
 
   def update
+    handle_interactor(interactor)
+  end
+
+  private
+
+  def interactor
     case params[:commit]
     when 'Build'
-      perform_settle_with_road
+      settle_with_road
     when 'End turn'
-      perform_end_turn
+      end_turn
     when 'Gain'
-      perform_gain_resources
+      gain_resources
     else
       raise StandardError, "Cannot process action: #{params[:commit]}"
     end
   end
 
-  private
-
-  def perform_settle_with_road
+  def settle_with_road
     settlement_spot = Integer(params[:settlement][:spot_index])
     road_extension_spot = Integer(params[:road][:to])
-    interactor = SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot)
-    handle_interactor(interactor)
+    SettleWithRoad.new(settlement_spot: settlement_spot, road_extension_spot: road_extension_spot)
   end
 
-  def perform_end_turn
-    interactor = EndTurn.new
-    handle_interactor(interactor)
+  def end_turn
+    EndTurn.new
   end
 
-  def perform_gain_resources
+  def gain_resources
     chit = Integer(params[:tile][:chit])
-    interactor = GainResources.new(chit: chit)
-    handle_interactor(interactor)
+    GainResources.new(chit: chit)
   end
 
   def handle_interactor(interactor)

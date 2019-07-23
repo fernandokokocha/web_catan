@@ -21,6 +21,8 @@ class GamesController < ApplicationController
       end_turn
     when 'Gain'
       gain_resources
+    when 'Buy card'
+      buy_card
     else
       raise StandardError, "Cannot process action: #{params[:commit]}"
     end
@@ -39,6 +41,10 @@ class GamesController < ApplicationController
   def gain_resources
     chit = Integer(params[:tile][:chit])
     GainResources.new(chit: chit)
+  end
+
+  def buy_card
+    BuyCard.new
   end
 
   def handle_interactor(interactor)

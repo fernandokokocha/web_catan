@@ -28,6 +28,12 @@
           </h4>
           <%= render partial: 'gain_resources', locals: { state: state, disabled: action_taken || (turn <= players.count*2) } %>
         </div>
+        <div class="box">
+          <h4 class="is-size-4">
+            Buy card
+          </h4>
+          <%= render partial: 'buy_card', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
+        </div>
       </div>
     </div>
   </div>

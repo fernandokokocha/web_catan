@@ -1,10 +1,9 @@
 class GamesController < ApplicationController
-  def new
-    render_game(generate_new_game)
-  end
-
-  def show
-    render_game(generate_new_game)
+  def create
+    game = Game.new
+    @result = game.handle(interactor)
+    redirect_to({ controller: :home, action: :index }, flash: { error: error_message }) and return if error_message
+    render_game(game)
   end
 
   def update
@@ -13,8 +12,19 @@ class GamesController < ApplicationController
 
   private
 
+  def sanitize_player_params
+    [
+      params['player_1'],
+      params['player_2'],
+      params['player_3'],
+      params['player_4']
+    ].select { |player_params| player_params[:name].present? }
+  end
+
   def interactor
     case params[:commit]
+    when 'New game'
+      setup_game
     when 'Build'
       settle_with_road
     when 'End turn'
@@ -26,6 +36,10 @@ class GamesController < ApplicationController
     else
       raise StandardError, "Cannot process action: #{params[:commit]}"
     end
+  end
+
+  def setup_game
+    SetupGame.new(players_params: sanitize_player_params)
   end
 
   def settle_with_road
@@ -82,18 +96,5 @@ class GamesController < ApplicationController
     message = @result.message
     return nil if message.empty?
     return message
-  end
-
-  def generate_new_game
-    Game.new.tap do |game|
-      game.handle(
-        SetupGame.new(
-          players_params: [
-            { name: 'Bartek', color: :orange },
-            { name: 'John', color: :red }
-          ]
-        )
-      )
-    end
   end
 end

@@ -1,5 +1,111 @@
-<section class="section">
-  <div class="container">
-    <%= button_to 'New game', new_game_path, method: :get, class: 'button is-link' %>
-  </div>
-</section>
+<%= form_tag(game_path, method: :post) do %>
+  <section class="section">
+    <div class="container">
+
+      <% if flash[:error] %>
+        <%= render partial: 'shared/error_pane', locals: { error: flash[:error] } %>
+      <% end %>
+
+      <div class="columns">
+        <div class="column">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <%= label_tag(:player_1, "Player 1:", class: 'label') %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <%= text_field(:player_1, :name, class: 'input', required: true, placeholder: 'Name') %>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <span class="select">
+                    <%= select(:player_1, :color, [:orange, :red, :blue, :white], { required: true }) %>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <%= label_tag(:player_2, "Player 2:", class: 'label') %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <%= text_field(:player_2, :name, class: 'input', required: true, placeholder: 'Name') %>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <span class="select">
+                    <%= select(:player_2, :color, [:orange, :red, :blue, :white], { required: true }) %>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <%= label_tag(:player_3, "(optional) Player 3:", class: 'label') %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <%= text_field(:player_3, :name, class: 'input', placeholder: 'Name') %>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <span class="select">
+                    <%= select(:player_3, :color, [:orange, :red, :blue, :white]) %>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <%= label_tag(:player_4, "(optional) Player 4:", class: 'label') %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <%= text_field(:player_4, :name, class: 'input', placeholder: 'Name') %>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <span class="select">
+                    <%= select(:player_4, :color, [:orange, :red, :blue, :white]) %>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= submit_tag("New game", class: 'button is-link') %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% end %>

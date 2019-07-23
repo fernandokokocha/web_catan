@@ -24,6 +24,14 @@
   background-color: $player-red-color;
 }
 
+.place-blue {
+  background-color: $player-blue-color;
+}
+
+.place-white {
+  background-color: $player-white-color;
+}
+
 .place-background {
   shape-outside: circle(50%);
   clip-path: circle(50%);

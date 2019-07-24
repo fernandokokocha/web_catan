@@ -17,21 +17,12 @@
       </div>
       <div class="column is-8">
         <div class="box">
-          <h4 class="is-size-4">
-            Settle with road
-          </h4>
           <%= render partial: 'settle_with_road_form', locals: { state: state, disabled: action_taken || (turn > players.count*2) } %>
         </div>
         <div class="box">
-          <h4 class="is-size-4">
-            Gain resources
-          </h4>
           <%= render partial: 'gain_resources', locals: { state: state, disabled: action_taken || (turn <= players.count*2) } %>
         </div>
         <div class="box">
-          <h4 class="is-size-4">
-            Buy card
-          </h4>
           <%= render partial: 'buy_card', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
         </div>
       </div>

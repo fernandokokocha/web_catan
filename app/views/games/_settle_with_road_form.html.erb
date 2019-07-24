@@ -1,38 +1,27 @@
 <%= form_tag(game_path, method: :patch) do %>
   <%= hidden_field_tag(:state, state) %>
-  <div class="columns is-5">
+  <div class="columns">
     <div class="column">
       <div class="field is-horizontal">
         <div class="field-label is-normal">
-          <%= label_tag(:settlement, "Settlement:", class: 'label') %>
+          <%= label_tag(:settlement, "Settle with road:", class: 'label') %>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <%= text_field(:settlement, :spot_index, class: 'input', required: true, disabled: disabled) %>
+              <%= text_field(:settlement, :spot_index, class: 'input', required: true, disabled: disabled, placeholder: 'Settlement') %>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="column is-5">
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <%= label_tag(:road, "Road:", class: 'label') %>
-        </div>
-        <div class="field-body">
           <div class="field">
             <div class="control">
-              <%= text_field(:road, :to, class: 'input', required: true, disabled: disabled) %>
+              <%= text_field(:road, :to, class: 'input', required: true, disabled: disabled, placeholder: 'Road') %>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="column is-2">
-      <div class="field">
-        <div class="control">
-          <%= submit_tag("Build", class: 'button is-link', disabled: disabled) %>
+          <div class="field">
+            <div class="control">
+              <%= submit_tag("Build", class: 'button is-link', disabled: disabled) %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

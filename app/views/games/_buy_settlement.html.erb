@@ -6,17 +6,12 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <%= submit_tag("Settle with road", class: 'button is-link', disabled: disabled) %>
+              <%= submit_tag("Buy settlement", class: 'button is-link', disabled: disabled) %>
             </div>
           </div>
           <div class="field">
             <div class="control">
               <%= text_field(:settlement, :spot_index, class: 'input', required: true, disabled: disabled, placeholder: 'Settlement') %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <%= text_field(:road, :to, class: 'input', required: true, disabled: disabled, placeholder: 'Road') %>
             </div>
           </div>
         </div>

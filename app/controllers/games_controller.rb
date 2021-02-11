@@ -25,14 +25,18 @@ class GamesController < ApplicationController
     case params[:commit]
     when 'New game'
       setup_game
-    when 'Build'
+    when 'Settle with road'
       settle_with_road
-    when 'End turn'
-      end_turn
-    when 'Gain'
+    when 'Gain resources'
       gain_resources
     when 'Buy card'
       buy_card
+    when 'Buy road'
+      buy_road
+    when 'Buy settlement'
+      buy_settlement
+    when 'End turn'
+      end_turn
     else
       raise StandardError, "Cannot process action: #{params[:commit]}"
     end
@@ -59,6 +63,17 @@ class GamesController < ApplicationController
 
   def buy_card
     BuyCard.new
+  end
+
+  def buy_settlement
+    spot_index = Integer(params[:settlement][:spot_index])
+    BuySettlement.new(spot_index: spot_index)
+  end
+
+  def buy_road
+    from = Integer(params[:road][:from])
+    to = Integer(params[:road][:to])
+    BuyRoad.new(from_index: from, to_index: to)
   end
 
   def handle_interactor(interactor)

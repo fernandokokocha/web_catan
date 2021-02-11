@@ -1,8 +1,12 @@
 <%= form_tag(game_path, method: :patch) do %>
   <%= hidden_field_tag(:state, state) %>
-  <div class="field">
-    <div class="control">
-      <%= submit_tag("End turn", class: 'button is-link', disabled: disabled) %>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <div class="control">
+          <%= submit_tag("End turn", class: 'button is-link', disabled: disabled) %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

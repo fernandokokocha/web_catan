@@ -16,13 +16,13 @@
             <div class="field-body">
               <div class="field">
                 <p class="control">
-                  <%= text_field(:player_1, :name, class: 'input', required: true, placeholder: 'Name') %>
+                  <%= text_field(:player_1, :name, class: 'input', required: true, placeholder: 'Name', value: "Bartek") %>
                 </p>
               </div>
               <div class="field">
                 <p class="control">
                   <span class="select">
-                    <%= select(:player_1, :color, [:orange, :red, :blue, :white], { required: true }) %>
+                    <%= select(:player_1, :color, [:orange, :red, :blue, :white], { required: true, selected: :orange }) %>
                   </span>
                 </p>
               </div>
@@ -36,13 +36,13 @@
             <div class="field-body">
               <div class="field">
                 <p class="control">
-                  <%= text_field(:player_2, :name, class: 'input', required: true, placeholder: 'Name') %>
+                  <%= text_field(:player_2, :name, class: 'input', required: true, placeholder: 'Name', value: "Krzychu") %>
                 </p>
               </div>
               <div class="field">
                 <p class="control">
                   <span class="select">
-                    <%= select(:player_2, :color, [:orange, :red, :blue, :white], { required: true }) %>
+                    <%= select(:player_2, :color, [:orange, :red, :blue, :white], { required: true, selected: :red }) %>
                   </span>
                 </p>
               </div>
@@ -62,7 +62,7 @@
               <div class="field">
                 <p class="control">
                   <span class="select">
-                    <%= select(:player_3, :color, [:orange, :red, :blue, :white]) %>
+                    <%= select(:player_3, :color, [:orange, :red, :blue, :white], { selected: :blue }) %>
                   </span>
                 </p>
               </div>
@@ -82,7 +82,7 @@
               <div class="field">
                 <p class="control">
                   <span class="select">
-                    <%= select(:player_4, :color, [:orange, :red, :blue, :white]) %>
+                    <%= select(:player_4, :color, [:orange, :red, :blue, :white], { selected: :white }) %>
                   </span>
                 </p>
               </div>

@@ -35,6 +35,8 @@ class GamesController < ApplicationController
       buy_road
     when 'Buy settlement'
       buy_settlement
+    when 'Trade with bank'
+      trade_with_bank
     when 'End turn'
       end_turn
     else
@@ -74,6 +76,12 @@ class GamesController < ApplicationController
     from = Integer(params[:road][:from])
     to = Integer(params[:road][:to])
     BuyRoad.new(from_index: from, to_index: to)
+  end
+
+  def trade_with_bank
+    gives = params[:trade][:gives].to_sym
+    takes = params[:trade][:takes].to_sym
+    TradeWithBank.new(gives: gives, takes: takes)
   end
 
   def handle_interactor(interactor)

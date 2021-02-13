@@ -1,0 +1,32 @@
+<%= form_tag(game_path, method: :patch) do %>
+  <%= hidden_field_tag(:state, state) %>
+  <div class="columns">
+    <div class="column">
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <%= submit_tag("Trade with bank", class: 'button is-link', disabled: disabled) %>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              You give 4
+              <span class="select">
+                <%= select(:trade, :gives, [:grain, :wool, :lumber, :ore, :brick], { required: true, disabled: disabled }) %>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              to take 1
+              <span class="select">
+                <%= select(:trade, :takes, [:grain, :wool, :lumber, :ore, :brick], { required: true, disabled: disabled, selected: :wool }) %>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

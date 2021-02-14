@@ -18,6 +18,7 @@
         <%= render partial: 'gain_resources', locals: { state: state, disabled: action_taken || (turn <= players.count*2) } %>
         <%= render partial: 'buy_road', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
         <%= render partial: 'buy_settlement', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
+        <%= render partial: 'buy_city', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
         <%= render partial: 'buy_card', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
         <%= render partial: 'trade_with_bank', locals: { state: state, disabled: !action_taken || (turn <= players.count*2) } %>
         <%= render partial: 'end_turn_form', locals: { state: state, disabled: !action_taken } %>

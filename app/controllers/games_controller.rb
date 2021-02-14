@@ -35,6 +35,8 @@ class GamesController < ApplicationController
       buy_road
     when 'Buy settlement'
       buy_settlement
+    when 'Buy city'
+      buy_city
     when 'Trade with bank'
       trade_with_bank
     when 'End turn'
@@ -72,6 +74,11 @@ class GamesController < ApplicationController
     BuySettlement.new(spot_index: spot_index)
   end
 
+  def buy_city
+    spot_index = Integer(params[:city][:spot_index])
+    BuyCity.new(spot_index: spot_index)
+  end
+
   def buy_road
     from = Integer(params[:road][:from])
     to = Integer(params[:road][:to])
@@ -97,6 +104,11 @@ class GamesController < ApplicationController
       spots[settlement.spot_index - 1][:builing] = :settlement
       spots[settlement.spot_index - 1][:owner] = settlement.owner.name
       spots[settlement.spot_index - 1][:color] = settlement.owner.color
+    end
+    game.cities.each do |city|
+      spots[city.spot_index - 1][:builing] = :city
+      spots[city.spot_index - 1][:owner] = city.owner.name
+      spots[city.spot_index - 1][:color] = city.owner.color
     end
     players = game.players.sort_by { | player| player.index }.map do |player|
       OpenStruct.new(index: player.index, name: player.name, color: player.color, resources: player.resources, score: game.score(player))
